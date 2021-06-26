@@ -4,6 +4,8 @@ import pygame
 
 from settings import Settings
 
+from ship import Ship
+
 class AlienDestruction:
       """Main class which manages overall game behavior
             assets"""
@@ -14,6 +16,7 @@ class AlienDestruction:
             self.settings=Settings()
             self.screen=pygame.display.set_mode((self.settings.screen_width,self.settings.screen_height))
             pygame.display.set_caption("Alien Destruction")
+            self.ship=Ship(self)
             #set the background color
             # #self.bg_color=(230,230,230);
 
@@ -27,6 +30,7 @@ class AlienDestruction:
                   
                   #fill the screen window with defined background color
                   self.screen.fill(self.settings.bg_color)
+                  self.ship.blitme()
 
                   #make the most recently drawn screen visible
                   pygame.display.flip()
