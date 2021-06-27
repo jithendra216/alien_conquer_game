@@ -11,7 +11,17 @@ class Ship:
             self.rect=self.image.get_rect()
             #set each new ship at the center bottom
             self.rect.midbottom=self.screen_rect.midbottom
+            #movement flag
+            self.moving_right = False
+            self.moving_left = False
 
       def blitme(self):
             """draw the ship at its current location"""
             self.screen.blit(self.image,self.rect)
+      
+      def update(self):
+            """update the ship's position based on movement flags"""
+            if self.moving_right:
+                  self.rect.x += 1
+            if self.moving_left:
+                  self.rect.x -= 1
